@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteQuote, toggleVisibility, editQuoteAuthenticity,  } from '../state/quotesSlice';
+import { deleteQuote, toggleVisibility, editQuoteAuthenticity,
+   setHighlightedQuote,  } from '../state/quotesSlice';
 
 
 
@@ -35,7 +36,9 @@ export default function Quotes() {
                     dispatch(actionToDispatch)
                   }}>DELETE</button>
                   {/* ✨ dispatch an action */ }
-                  <button onClick={() => dispatch}>HIGHLIGHT</button>
+                  <button onClick={() => {
+                    dispatch(setHighlightedQuote(qt.id))
+                  }}>HIGHLIGHT</button>
                   {/* ✨ dispatch an action */ }
                   <button onClick={() => {
                     dispatch(editQuoteAuthenticity(qt.id))
